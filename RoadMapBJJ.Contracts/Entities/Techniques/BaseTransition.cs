@@ -18,5 +18,5 @@ public abstract class BaseTransition(
     public IPosition InitialPosition { get; set; } = initialPosition;
     public IPosition FinalPosition { get; set; } = finalPosition;
     public TransitionType TransitionType { get; set; } = transitionType;
-    public Guid Id { get; set; } = new();
+    public Guid ID { get; set; } = new();
 }

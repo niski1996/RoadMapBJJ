@@ -16,5 +16,5 @@ public abstract class BaseFightAction(
     
     public IEnumerable<IVideo> TutorialVideos { get; set; } = new List<IVideo>();
     public IEnumerable<IFightAction> PossibleOpponentActions { get; set; } = new List<IFightAction>();
-    public Guid Id { get; set; } = new();
+    public Guid ID { get; set; } = new();
 }
