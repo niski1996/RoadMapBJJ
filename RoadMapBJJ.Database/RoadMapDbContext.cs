@@ -1,22 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using RoadMapBJJ.Contracts.Entities.Persons;
 using Microsoft.Extensions.Configuration;
+using RoadMapBJJ.Database.Tables.Techniques;
 
 namespace RoadMapBJJ.Database
 {
-    public class RoadMapDbContext : DbContext
+    public class RoadMapDbContext : IdentityDbContext<User>
     {
-
-        public DbSet<Person> People { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public RoadMapDbContext(DbContextOptions options) : base(options)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                var connectionString = "Host=127.0.0.1;Port=6432;Database=MainBjj;Username=postgres;Password=yourpassword";
-                optionsBuilder.UseNpgsql(connectionString);
-            }
+
+        }
+        
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.HasDefaultSchema("main");
         }
     }
-    
 }

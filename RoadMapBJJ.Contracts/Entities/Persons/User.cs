@@ -1,6 +1,8 @@
-﻿namespace RoadMapBJJ.Contracts.Entities.Persons;
+﻿using Microsoft.AspNetCore.Identity;
 
-public class User
+namespace RoadMapBJJ.Contracts.Entities.Persons;
+
+public class User : IdentityUser
 {
     public Guid Id { get; set; }
     public string Username { get; set; }
