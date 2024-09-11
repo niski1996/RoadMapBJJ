@@ -10,7 +10,7 @@ namespace RoadMapBJJ.Database
     {
         public RoadMapDbContext(DbContextOptions options) : base(options)
         {
-
+  
             
         }
         
