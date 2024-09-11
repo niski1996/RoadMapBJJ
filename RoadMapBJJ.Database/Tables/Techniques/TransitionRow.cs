@@ -1,10 +1,17 @@
-﻿using RoadMapBJJ.Contracts.Entities.Techniques;
-using RoadMapBJJ.Contracts.Enums;
+﻿using RoadMapBJJ.Contracts.Enums;
+using RoadMapBJJ.Database.Tables.Media;
 
 namespace RoadMapBJJ.Database.Tables.Techniques;
 
-public class TransitionRow(string description, string name, TransitionType transitionType, IPosition initialPosition, IPosition finalPosition) : BaseTransition(description, name, transitionType, initialPosition, finalPosition), IDatabaseTable, IUpdatableTable
+internal class TransitionRow : IDescriptable, IUpdatableTable
 {
     public DateTime InsertTime { get; set; }
     public DateTime UpdateTime { get; set; }
+    public Guid Id { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public IEnumerable<VideoRow> TutorialVideos { get; set; }
+    public PositionRow InitialPosition { get; set; }
+    public PositionRow FinalPosition { get; set; }
+    public TransitionType TransitionType { get; set; }
 }

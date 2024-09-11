@@ -3,14 +3,23 @@ using RoadMapBJJ.Contracts.Enums;
 
 namespace RoadMapBJJ.Contracts.Entities.Techniques;
 
-public abstract class BasePosition(
-    string description,
-    string name,
-    PositionType positionType) : IPosition
+public abstract class BasePosition : IPosition
 {
-    public string Name { get; set; } = name;
-    public string Description { get; set; } = description;
-    public PositionType PositionType { get; set; } = positionType;
+    public BasePosition() //EF use only
+    {
+    }
+    protected BasePosition(string description,
+        string name,
+        PositionType positionType)
+    {
+        Name = name;
+        Description = description;
+        PositionType = positionType;
+    }
+
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public PositionType PositionType { get; set; }
     
     public IEnumerable<IVideo> TutorialVideos { get; set; } = new List<IVideo>();
     public IEnumerable<IFightAction> PossibleActions { get; set; } = new List<IFightAction>();

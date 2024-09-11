@@ -1,6 +1,6 @@
 namespace RoadMapBJJ.Database;
 
-internal interface IUpdatableTable:IDatabaseTable
+internal interface IUpdatableTable : IDatabaseTable
 {
     public DateTime UpdateTime { get; set; }
 }

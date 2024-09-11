@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using RoadMapBJJ.Contracts.Entities.Persons;
-using Microsoft.Extensions.Configuration;
+using RoadMapBJJ.Database.Tables.Media;
 using RoadMapBJJ.Database.Tables.Techniques;
 
 namespace RoadMapBJJ.Database
@@ -10,19 +10,13 @@ namespace RoadMapBJJ.Database
     {
         public RoadMapDbContext(DbContextOptions options) : base(options)
         {
-  
-              
         }
-
-        public DbSet<Person> Personseating(ModelBuilder builder)
-        {
-            return Set<Person>();
-        }
-        
         
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.AddTechniques();
+            builder.AdMedia();
             builder.HasDefaultSchema("main");
         }
     }

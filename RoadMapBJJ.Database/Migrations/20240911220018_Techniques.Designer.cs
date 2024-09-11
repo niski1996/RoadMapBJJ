@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RoadMapBJJ.Database;
@@ -11,9 +12,11 @@ using RoadMapBJJ.Database;
 namespace RoadMapBJJ.Database.Migrations
 {
     [DbContext(typeof(RoadMapDbContext))]
-    partial class RoadMapDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240911220018_Techniques")]
+    partial class Techniques
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -227,40 +230,6 @@ namespace RoadMapBJJ.Database.Migrations
                     b.ToTable("AspNetUsers", "main");
                 });
 
-            modelBuilder.Entity("RoadMapBJJ.Database.Tables.Media.VideoDataRow", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("InsertTime")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone")
-                        .HasDefaultValueSql("GETUTCDATE()");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
-
-                    b.Property<DateTime>("UpdateTime")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("timestamp with time zone")
-                        .HasDefaultValueSql("GETUTCDATE()");
-
-                    b.Property<Guid>("VideoRowId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("VideoRowId");
-
-                    b.ToTable("VideoDataRow", "main");
-                });
-
             modelBuilder.Entity("RoadMapBJJ.Database.Tables.Media.VideoRow", b =>
                 {
                     b.Property<Guid>("Id")
@@ -271,9 +240,7 @@ namespace RoadMapBJJ.Database.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("InsertTime")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone")
-                        .HasDefaultValueSql("GETUTCDATE()");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid?>("PositionRowId")
                         .HasColumnType("uuid");
@@ -462,17 +429,6 @@ namespace RoadMapBJJ.Database.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("RoadMapBJJ.Database.Tables.Media.VideoDataRow", b =>
-                {
-                    b.HasOne("RoadMapBJJ.Database.Tables.Media.VideoRow", "VideoRow")
-                        .WithMany()
-                        .HasForeignKey("VideoRowId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("VideoRow");
                 });
 
             modelBuilder.Entity("RoadMapBJJ.Database.Tables.Media.VideoRow", b =>

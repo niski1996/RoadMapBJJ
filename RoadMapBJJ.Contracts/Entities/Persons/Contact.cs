@@ -1,5 +1,4 @@
-﻿using System.Net.Mail;
-using RoadMapBJJ.Contracts.Common;
+﻿using RoadMapBJJ.Contracts.Common;
 
 namespace RoadMapBJJ.Contracts.Entities.Persons;
 

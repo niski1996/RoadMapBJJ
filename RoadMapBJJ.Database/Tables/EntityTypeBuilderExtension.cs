@@ -1,19 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RoadMapBJJ.Contracts.Common;
-using RoadMapBJJ.Contracts.Entities.Techniques;
 
-namespace RoadMapBJJ.Database.Tables.Techniques;
+namespace RoadMapBJJ.Database.Tables;
 
 internal static class EntityTypeBuilderExtension
 {
-    internal static void SetUpdatablePropertyGenerate<T>(this EntityTypeBuilder<T> entry) where T : class, IUpdatableTable
-    {
-        entry.SetBaseGeneratableProperties();
-        entry.Property(t => t.UpdateTime)
-            .HasDefaultValueSql("GETUTCDATE()")
-            .ValueGeneratedOnAddOrUpdate();
-    }
 
     internal static void SetBaseGeneratableProperties<T>(this EntityTypeBuilder<T> entry) where T : class, IDatabaseTable, IEntity
     {
@@ -25,7 +17,15 @@ internal static class EntityTypeBuilderExtension
             .ValueGeneratedOnAdd();
     }
     
-    internal static void SetTechniqueProperties<T>(this EntityTypeBuilder<T> entry) where T : class, ITechnique, IUpdatableTable
+    internal static void SetUpdatablePropertyGenerate<T>(this EntityTypeBuilder<T> entry) where T : class, IUpdatableTable
+    {
+        entry.SetBaseGeneratableProperties();
+        entry.Property(t => t.UpdateTime)
+            .HasDefaultValueSql("GETUTCDATE()")
+            .ValueGeneratedOnAddOrUpdate();
+    }
+    
+    internal static void SetDescribtionProperties<T>(this EntityTypeBuilder<T> entry) where T : class, IDescriptable, IUpdatableTable
     {
         entry.Property(t => t.Name)
             .IsRequired()
@@ -33,5 +33,18 @@ internal static class EntityTypeBuilderExtension
         entry.Property(t => t.Description).IsRequired(false);
     }
     
+    internal static void SetTechniqueProperties<T>(this EntityTypeBuilder<T> entry) where T : class, IDescriptable, IUpdatableTable
+    {
+        entry.SetUpdatablePropertyGenerate();
+        entry.SetDescribtionProperties();
+    }
     
+    
+}
+
+internal interface IDescriptable
+{
+    public string Name { get; set; }
+
+    public string Description { get; set; }
 }
