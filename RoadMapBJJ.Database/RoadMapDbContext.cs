@@ -13,6 +13,12 @@ namespace RoadMapBJJ.Database
   
               
         }
+
+        public DbSet<Person> Personseating(ModelBuilder builder)
+        {
+            return Set<Person>();
+        }
+        
         
         protected override void OnModelCreating(ModelBuilder builder)
         {
