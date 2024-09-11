@@ -11,6 +11,7 @@ namespace RoadMapBJJ.Database
         public RoadMapDbContext(DbContextOptions options) : base(options)
         {
 
+            
         }
         
         protected override void OnModelCreating(ModelBuilder builder)
