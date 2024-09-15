@@ -1,5 +1,4 @@
 ﻿using RoadMapBJJ.Contracts.Common;
-using RoadMapBJJ.Contracts.Entities.Media;
 
 namespace RoadMapBJJ.Contracts.Entities.Techniques;
 

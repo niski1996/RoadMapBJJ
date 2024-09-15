@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RoadMapBJJ.Contracts.Common;
 using RoadMapBJJ.Contracts.Entities.Techniques;
 
-namespace RoadMapBJJ.Database.Tables.Techniques;
+namespace RoadMapBJJ.Database.Tables;
 
 internal static class EntityTypeBuilderExtension
 {

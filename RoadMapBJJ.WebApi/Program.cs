@@ -1,12 +1,18 @@
+using FFMpegCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RoadMapBJJ.Contracts.Entities.Persons;
 using RoadMapBJJ.Database;
+using RoadMapBJJ.Services.videos;
 
 var builder = WebApplication.CreateBuilder(args);
+ConfigurationManager configuration = builder.Configuration; ;
+
+GlobalFFOptions.Configure(new FFOptions{BinaryFolder = "ffmpeg/bin", TemporaryFilesFolder = "ffmpeg/tmp"});
+builder.Services.Configure<VideoSettings>(configuration.GetSection("VideoSettings"));
 
 builder.Services.AddDbContext<RoadMapDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSqlConnection")));
+    options.UseNpgsql(configuration.GetConnectionString("PostgreSqlConnection")));
 
 
 builder.Services.AddControllers();
@@ -20,6 +26,8 @@ builder.Services.AddAuthentication().AddCookie(IdentityConstants.ApplicationSche
 builder.Services.AddIdentityCore<User>()
     .AddEntityFrameworkStores<RoadMapDbContext>()
     .AddApiEndpoints();
+
+
 
 var app = builder.Build();
 

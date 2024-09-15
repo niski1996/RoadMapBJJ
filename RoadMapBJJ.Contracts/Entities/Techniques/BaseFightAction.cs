@@ -1,4 +1,4 @@
-﻿using RoadMapBJJ.Contracts.Entities.Media;
+﻿using RoadMapBJJ.Contracts.Common;
 using RoadMapBJJ.Contracts.Enums;
 
 namespace RoadMapBJJ.Contracts.Entities.Techniques;
