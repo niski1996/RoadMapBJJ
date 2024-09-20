@@ -1,6 +1,6 @@
 namespace RoadMapBJJ.Contracts.Enums;
 
-public enum Citizenship
+public enum Nationality
 {
     polisz, 
     niepolisz,
