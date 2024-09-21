@@ -15,7 +15,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DrillRoad.Contracts\DrillRoad.Contracts.csproj" />
-      <ProjectReference Include="..\RoadMapBJJ.Contracts\RoadMapBJJ.Contracts.csproj" />
+      <ProjectReference Include="..\DrillRoad.Contracts\DrillRoad.Contracts.csproj" />
     </ItemGroup>
 
 </Project>

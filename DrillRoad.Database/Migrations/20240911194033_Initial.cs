@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace RoadMapBJJ.Database.Migrations
+namespace DrillRoad.Database.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration

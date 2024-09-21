@@ -8,7 +8,7 @@ using DrillRoad.Database;
 
 #nullable disable
 
-namespace RoadMapBJJ.Database.Migrations
+namespace DrillRoad.Database.Migrations
 {
     [DbContext(typeof(RoadMapDbContext))]
     partial class RoadMapDbContextModelSnapshot : ModelSnapshot

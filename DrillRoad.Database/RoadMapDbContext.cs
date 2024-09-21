@@ -6,7 +6,7 @@ namespace DrillRoad.Database
 {
     public class RoadMapDbContext : IdentityDbContext<User>
     {
-        public RoadMapDbContext(DbContextOptions options) : base(options)
+        public RoadMapDbContext(DbContextOptions<RoadMapDbContext> options) : base(options)
         {
 
             

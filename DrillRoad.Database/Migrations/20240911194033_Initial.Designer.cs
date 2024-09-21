@@ -9,7 +9,7 @@ using DrillRoad.Database;
 
 #nullable disable
 
-namespace RoadMapBJJ.Database.Migrations
+namespace DrillRoad.Database.Migrations
 {
     [DbContext(typeof(RoadMapDbContext))]
     [Migration("20240911194033_Initial")]
