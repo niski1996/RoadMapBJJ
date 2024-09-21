@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrillRoad.WebApi.Controllers;
@@ -11,5 +12,11 @@ public class VideoController : ControllerBase
     public Task UploadVideo(IFormFile file)
     {
         return Task.CompletedTask;
+    }
+
+    [HttpGet, Authorize]
+    public string GetVideos()
+    {
+        return "Videos";
     }
 }

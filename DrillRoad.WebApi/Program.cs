@@ -1,9 +1,12 @@
 using DrillRoad.Contracts.Entities.Persons;
 using DrillRoad.Database;
+using DrillRoad.Database.Tables;
 using DrillRoad.Services.videos;
 using FFMpegCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration; ;
@@ -18,15 +21,30 @@ builder.Services.AddDbContext<RoadMapDbContext>(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+    {
+        options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+        {
+            In = ParameterLocation.Header,
+            Name = "Authorization",
+            Type = SecuritySchemeType.ApiKey,
+        });
+        options.OperationFilter<SecurityRequirementsOperationFilter>();
+    }
+    );
+
 
 builder.Services.AddAuthorization();
-builder.Services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme)
-    .AddBearerToken(IdentityConstants.BearerScheme);
+builder.Services.AddIdentityApiEndpoints<IdentityUser>()
+    .AddEntityFrameworkStores<RoadMapDbContext>();
 
-builder.Services.AddIdentityCore<User>()
-    .AddEntityFrameworkStores<RoadMapDbContext>()
-    .AddApiEndpoints();
+
+// builder.Services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme)
+//     .AddBearerToken(IdentityConstants.BearerScheme);
+
+// builder.Services.AddIdentityCore<User>()
+//     .AddEntityFrameworkStores<RoadMapDbContext>()
+//     .AddApiEndpoints();
 
 
 
@@ -41,7 +59,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-// app.MapIdentityApi<User>();
+app.MapIdentityApi<IdentityUser>();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
