@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FFMpegCore" Version="5.1.0" />
+      <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
+      <PackageReference Include="System.Drawing.Common" Version="9.0.0-rc.1.24451.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DrillRoad.Contracts\DrillRoad.Contracts.csproj" />
+      <ProjectReference Include="..\RoadMapBJJ.Contracts\RoadMapBJJ.Contracts.csproj" />
+    </ItemGroup>
+
+</Project>
