@@ -25,7 +25,7 @@ internal static class EntityTypeBuilderExtension
             .ValueGeneratedOnAdd();
     }
     
-    internal static void SetTechniqueProperties<T>(this EntityTypeBuilder<T> entry) where T : class, ITechnique, IUpdatableTable
+    internal static void SetTechniqueProperties<T>(this EntityTypeBuilder<T> entry) where T : class, ITechniqueDb, IUpdatableTable
     {
         entry.Property(t => t.Name)
             .IsRequired()
