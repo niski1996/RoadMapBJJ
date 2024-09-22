@@ -1,5 +1,5 @@
 using DrillRoad.Contracts.Common;
-using DrillRoad.Contracts.Entities.Techniques;
+using DrillRoad.Entities.Techniques;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

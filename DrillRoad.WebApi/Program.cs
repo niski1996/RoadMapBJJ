@@ -1,4 +1,3 @@
-using DrillRoad.Contracts.Entities.Persons;
 using DrillRoad.Database;
 using DrillRoad.Database.Tables;
 using DrillRoad.Services.videos;
