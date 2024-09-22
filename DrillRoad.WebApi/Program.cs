@@ -21,6 +21,10 @@ builder.Services.AddDbContext<RoadMapDbContext>(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin());
+});
 builder.Services.AddSwaggerGen(options =>
     {
         options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
