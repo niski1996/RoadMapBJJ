@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DrillRoad.Database.Migrations
 {
     [DbContext(typeof(RoadMapDbContext))]
-    [Migration("20240922224603_Techniques")]
-    partial class Techniques
+    [Migration("20240923113506_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,6 +25,165 @@ namespace DrillRoad.Database.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("DrillRoad.Contracts.Account.DrillIdentityUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid?>("AdditionalUserInfoId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex");
+
+                    b.ToTable("AspNetUsers", "main");
+                });
+
+            modelBuilder.Entity("DrillRoad.Database.Tables.Account.AdditionalUserInfoRow", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("ContactRowId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("InsertTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW()");
+
+                    b.Property<string>("PictureRepoPatch")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ContactRowId");
+
+                    b.ToTable("AdditionalUserInfoRow", "main");
+                });
+
+            modelBuilder.Entity("DrillRoad.Database.Tables.Account.AddressRow", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Apartment")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Building")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("InsertTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW()");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Street")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AddressRow", "main");
+                });
+
+            modelBuilder.Entity("DrillRoad.Database.Tables.Account.ContactRow", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("AddressId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("InsertTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW()");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AddressId");
+
+                    b.ToTable("ContactRow", "main");
+                });
 
             modelBuilder.Entity("DrillRoad.Database.Tables.Media.VideoRow", b =>
                 {
@@ -219,70 +378,6 @@ namespace DrillRoad.Database.Migrations
                     b.ToTable("AspNetRoleClaims", "main");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("boolean");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("text");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex");
-
-                    b.ToTable("AspNetUsers", "main");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -364,6 +459,28 @@ namespace DrillRoad.Database.Migrations
                     b.ToTable("AspNetUserTokens", "main");
                 });
 
+            modelBuilder.Entity("DrillRoad.Database.Tables.Account.AdditionalUserInfoRow", b =>
+                {
+                    b.HasOne("DrillRoad.Database.Tables.Account.ContactRow", "ContactRow")
+                        .WithMany()
+                        .HasForeignKey("ContactRowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ContactRow");
+                });
+
+            modelBuilder.Entity("DrillRoad.Database.Tables.Account.ContactRow", b =>
+                {
+                    b.HasOne("DrillRoad.Database.Tables.Account.AddressRow", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Address");
+                });
+
             modelBuilder.Entity("DrillRoad.Database.Tables.Media.VideoRow", b =>
                 {
                     b.HasOne("DrillRoad.Database.Tables.Techniques.FightActionRow", null)
@@ -428,7 +545,7 @@ namespace DrillRoad.Database.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("DrillRoad.Contracts.Account.DrillIdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -437,7 +554,7 @@ namespace DrillRoad.Database.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("DrillRoad.Contracts.Account.DrillIdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -452,7 +569,7 @@ namespace DrillRoad.Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("DrillRoad.Contracts.Account.DrillIdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -461,7 +578,7 @@ namespace DrillRoad.Database.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("DrillRoad.Contracts.Account.DrillIdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

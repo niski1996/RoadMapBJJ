@@ -11,14 +11,14 @@ internal static class EntityTypeBuilderExtension
     {
         entry.SetBaseGeneratableProperties();
         entry.Property(t => t.UpdateTime)
-            .HasDefaultValueSql("GETUTCDATE()")
+            .HasDefaultValueSql("NOW()")
             .ValueGeneratedOnAddOrUpdate();
     }
 
     internal static void SetBaseGeneratableProperties<T>(this EntityTypeBuilder<T> entry) where T : class, IDatabaseTable, IEntity
     {
         entry.Property(t => t.InsertTime)
-            .HasDefaultValueSql("GETUTCDATE()")
+            .HasDefaultValueSql("NOW()")
             .ValueGeneratedOnAdd();
         entry.HasKey(t => t.Id);
         entry.Property(t => t.Id)

@@ -1,3 +1,4 @@
+using DrillRoad.Contracts.Account;
 using DrillRoad.Database;
 using DrillRoad.Database.Tables;
 using DrillRoad.Services.videos;
@@ -38,7 +39,7 @@ builder.Services.AddSwaggerGen(options =>
 
 
 builder.Services.AddAuthorization();
-builder.Services.AddIdentityApiEndpoints<IdentityUser>()
+builder.Services.AddIdentityApiEndpoints<DrillIdentityUser>()
     .AddEntityFrameworkStores<RoadMapDbContext>();
 
 
@@ -61,7 +62,7 @@ var app = builder.Build();
 
 
 app.UseHttpsRedirection();
-app.MapIdentityApi<IdentityUser>();
+app.MapIdentityApi<DrillIdentityUser>();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
