@@ -1,10 +1,11 @@
+using DrillRoad.Contracts.Tables.Account;
 using DrillRoad.Entities.Account;
 
 namespace DrillRoad.Test.Samples
 {
     public static class AddressSamples
     {
-        public static Address Address1 { get; } = new()
+        public static AddressRow Address1 { get; } = new()
         {
             Apartment = "A1",
             Building = "Building 1",
@@ -15,7 +16,7 @@ namespace DrillRoad.Test.Samples
             Id = Guid.NewGuid()
         };
 
-        public static Address Address2 { get; } = new()
+        public static AddressRow Address2 { get; } = new()
         {
             Apartment = null,
             Building = "Building 2",
@@ -26,7 +27,7 @@ namespace DrillRoad.Test.Samples
             Id = Guid.NewGuid()
         };
 
-        public static Address Address3 { get; } = new()
+        public static AddressRow Address3 { get; } = new()
         {
             Apartment = "B2",
             Building = "Building 3",
@@ -37,7 +38,7 @@ namespace DrillRoad.Test.Samples
             Id = Guid.NewGuid()
         };
 
-        public static Address Address4 { get; } = new()
+        public static AddressRow Address4 { get; } = new()
         {
             Apartment = "C3",
             Building = "Building 4",
@@ -48,7 +49,7 @@ namespace DrillRoad.Test.Samples
             Id = Guid.NewGuid()
         };
 
-        public static Address Address5 { get; } = new()
+        public static AddressRow Address5 { get; } = new()
         {
             Apartment = null,
             Building = "Building 5",
@@ -60,7 +61,7 @@ namespace DrillRoad.Test.Samples
         };
 
         // Lista wszystkich adresów
-        public static List<Address> AllAddresses { get; } = new()
+        public static List<AddressRow> AllAddresses { get; } = new()
         {
             Address1,
             Address2,

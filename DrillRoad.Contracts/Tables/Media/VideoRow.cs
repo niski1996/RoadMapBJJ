@@ -1,4 +1,6 @@
-namespace DrillRoad.Database.Tables.Media;
+using DrillRoad.Contracts.DbContracts;
+
+namespace DrillRoad.Contracts.Tables.Media;
 
 public class VideoRow : IDatabaseTable
 {

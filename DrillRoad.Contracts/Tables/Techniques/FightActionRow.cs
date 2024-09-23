@@ -1,8 +1,8 @@
+using DrillRoad.Contracts.DbContracts;
 using DrillRoad.Contracts.Enums;
-using DrillRoad.Database.Tables.Media;
-using DrillRoad.Entities.Techniques;
+using DrillRoad.Contracts.Tables.Media;
 
-namespace DrillRoad.Database.Tables.Techniques;
+namespace DrillRoad.Contracts.Tables.Techniques;
 
 public class FightActionRow : ITechniqueDb
 {

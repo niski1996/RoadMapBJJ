@@ -1,5 +1,6 @@
 using DrillRoad.Contracts.Account;
 using DrillRoad.Contracts.Repositories;
+using DrillRoad.Contracts.Tables.Account;
 using DrillRoad.Database.Tables.Account;
 using DrillRoad.Entities.Account;
 using Microsoft.EntityFrameworkCore;

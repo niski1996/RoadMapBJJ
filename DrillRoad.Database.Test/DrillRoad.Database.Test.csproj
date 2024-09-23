@@ -26,4 +26,8 @@
       <ProjectReference Include="..\DrillRoad\DrillRoad.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Repository\" />
+    </ItemGroup>
+
 </Project>

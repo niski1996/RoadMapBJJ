@@ -11,8 +11,6 @@ public class RoadMapDbContext : IdentityDbContext<UserDrillIdentity>
 {
     public RoadMapDbContext(DbContextOptions<RoadMapDbContext> options) : base(options)
     {
-
-
     }
 
     protected override void OnModelCreating(ModelBuilder builder)

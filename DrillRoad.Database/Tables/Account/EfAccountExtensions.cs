@@ -1,3 +1,4 @@
+using DrillRoad.Contracts.Tables.Account;
 using Microsoft.EntityFrameworkCore;
 
 namespace DrillRoad.Database.Tables.Account;

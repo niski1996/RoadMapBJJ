@@ -1,6 +1,6 @@
-using System.Data;
+using DrillRoad.Contracts.DbContracts;
 
-namespace DrillRoad.Database.Tables.Account;
+namespace DrillRoad.Contracts.Tables.Account;
 
 public class ContactRow : IDatabaseTable
 {

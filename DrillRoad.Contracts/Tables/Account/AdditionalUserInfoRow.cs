@@ -1,7 +1,8 @@
 using DrillRoad.Contracts.Account;
-using DrillRoad.Database.Tables.Techniques;
+using DrillRoad.Contracts.DbContracts;
+using DrillRoad.Contracts.Tables.Techniques;
 
-namespace DrillRoad.Database.Tables.Account;
+namespace DrillRoad.Contracts.Tables.Account;
 
 public class AdditionalUserInfoRow : IDatabaseTable //TODO odwrócić relacje i zahostować to w identity user z kaskada na del
 {

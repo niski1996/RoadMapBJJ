@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DrillRoad.Contracts.Tables.Techniques;
+using Microsoft.EntityFrameworkCore;
 
 namespace DrillRoad.Database.Tables.Techniques;
 

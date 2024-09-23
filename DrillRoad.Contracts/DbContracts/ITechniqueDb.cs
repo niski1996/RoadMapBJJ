@@ -1,7 +1,6 @@
-﻿using DrillRoad.Contracts.Common;
-using DrillRoad.Database.Tables.Media;
+﻿using DrillRoad.Contracts.Tables.Media;
 
-namespace DrillRoad.Database;
+namespace DrillRoad.Contracts.DbContracts;
 
 public interface ITechniqueDb : IUpdatableTable
 {

@@ -1,6 +1,6 @@
 ﻿using DrillRoad.Contracts.Common;
 
-namespace DrillRoad.Database;
+namespace DrillRoad.Contracts.DbContracts;
 
 public interface IDatabaseTable : IEntity
 {

@@ -1,4 +1,4 @@
-namespace DrillRoad.Database;
+namespace DrillRoad.Contracts.DbContracts;
 
 public interface IPostgreSqlConnectionStringProvider
 {

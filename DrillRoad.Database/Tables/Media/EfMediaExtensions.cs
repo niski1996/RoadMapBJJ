@@ -1,3 +1,4 @@
+using DrillRoad.Contracts.Tables.Media;
 using Microsoft.EntityFrameworkCore;
 
 namespace DrillRoad.Database.Tables.Media;

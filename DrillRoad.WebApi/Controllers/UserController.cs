@@ -25,11 +25,11 @@ public class UserController(IAdditionalUserRepository repo) : ControllerBase
         var users = await repo.GetAllUsers(); // Fetch all users from repository
         return Ok(users.ToList()); // Return 200 OK with the list of users
     }
-    [HttpPost]
-    public Task<ActionResult> Post([FromBody] AdditionalUserInfo value)
-    {
-        return default;
-    }
+    // [HttpPost]
+    // public Task<ActionResult> Post([FromBody] AdditionalUserInfo value)
+    // {
+    //     return default;
+    // }
 
     [HttpDelete]
     public Task<ActionResult> Delete()
@@ -38,8 +38,3 @@ public class UserController(IAdditionalUserRepository repo) : ControllerBase
     }
 }
 
-public class AdditionalUserInfo
-{
-    Contact contact{get;set;}
-    DateTime BirthDate {get;set;}
-}

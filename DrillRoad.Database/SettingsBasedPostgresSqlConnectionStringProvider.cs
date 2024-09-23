@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using DrillRoad.Contracts.DbContracts;
+using Microsoft.Extensions.Options;
 
 namespace DrillRoad.Database;
 
