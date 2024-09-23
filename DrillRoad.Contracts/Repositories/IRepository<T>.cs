@@ -1,4 +1,4 @@
-using System.Linq.Expressions;
+namespace DrillRoad.Contracts.Repositories;
 
 public interface IBaseRepository<T> where T : class
 {

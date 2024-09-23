@@ -1,6 +1,6 @@
 ﻿using DrillRoad.Contracts.Common;
 
-namespace DrillRoad.Entities.Techniques;
+namespace DrillRoad.Contracts.Techniques;
 
 public interface ITechnique : IEntity
 {

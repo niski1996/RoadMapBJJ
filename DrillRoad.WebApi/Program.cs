@@ -1,5 +1,6 @@
 using DrillRoad.Contracts.Account;
 using DrillRoad.Database;
+using DrillRoad.Database.Repositories;
 using DrillRoad.Database.Tables;
 using DrillRoad.Services.videos;
 using FFMpegCore;
@@ -8,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args); //TODO generate strtup
 ConfigurationManager configuration = builder.Configuration; ;
 
 GlobalFFOptions.Configure(new FFOptions{BinaryFolder = "ffmpeg/bin", TemporaryFilesFolder = "ffmpeg/tmp"});
@@ -20,6 +21,7 @@ builder.Services.AddDbContext<RoadMapDbContext>(options =>
 
 
 builder.Services.AddControllers();
+builder.Services.AddRepositories();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddCors(opt =>
 {

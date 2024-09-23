@@ -1,4 +1,5 @@
 ﻿using DrillRoad.Contracts.Enums;
+using DrillRoad.Contracts.Techniques;
 
 namespace DrillRoad.Entities.Techniques;
 

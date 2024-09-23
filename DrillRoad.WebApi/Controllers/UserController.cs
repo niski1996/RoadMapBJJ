@@ -1,3 +1,6 @@
+using DrillRoad.Contracts.Account;
+using DrillRoad.Contracts.Repositories;
+using DrillRoad.Database.Repositories;
 using DrillRoad.Entities.Persons;
 using Microsoft.AspNetCore.Mvc;
 
@@ -5,14 +8,23 @@ namespace DrillRoad.WebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class UserController : ControllerBase
+public class UserController(IAdditionalUserRepository repo) : ControllerBase
 {
     [HttpGet]
-    public Task<Action<AdditionalUserInfo>> Get()
+    [Route("GetAll")]
+    public async Task<ActionResult<List<DrillIdentityUser>>> GetAll()
     {
-        return default;
+        var users = await repo.GetAllUsers(); // Fetch all users from repository
+        return Ok(users.ToList()); // Return 200 OK with the list of users
     }
-
+    
+    [HttpGet]
+    [Route("GetAllWithDetails")]
+    public async Task<ActionResult<List<DrillIdentityUser>>> GetAllWithDetails()
+    {
+        var users = await repo.GetAllUsers(); // Fetch all users from repository
+        return Ok(users.ToList()); // Return 200 OK with the list of users
+    }
     [HttpPost]
     public Task<ActionResult> Post([FromBody] AdditionalUserInfo value)
     {

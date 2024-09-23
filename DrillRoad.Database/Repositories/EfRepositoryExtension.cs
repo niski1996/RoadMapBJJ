@@ -1,6 +1,12 @@
-namespace DrillRoad.Contracts.Repositories;
+using DrillRoad.Contracts.Repositories;
+using Microsoft.Extensions.DependencyInjection;
 
-public class EfRepositoryExtension
+namespace DrillRoad.Database.Repositories;
+
+public static class EfRepositoryExtension
 {
-    
+    public static void AddRepositories(this IServiceCollection services)
+    {
+        services.AddScoped<IAdditionalUserRepository, AdditionalUserRepository>();
+    }
 }

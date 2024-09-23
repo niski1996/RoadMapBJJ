@@ -1,6 +1,6 @@
 ﻿using DrillRoad.Contracts.Enums;
 
-namespace DrillRoad.Entities.Techniques;
+namespace DrillRoad.Contracts.Techniques;
 
 public interface IFightAction : ITechnique
 {
