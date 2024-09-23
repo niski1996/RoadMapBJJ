@@ -8,5 +8,5 @@ public interface IAdditionalUserRepository
     Task<IEnumerable<IUserWithPersonalData>> GetAllUsersWithPersonalData();
     Task<IUserWithFullData> GetAllDrillUsers(Guid id);
     Task DeleteAsync(Guid id);
-    Task UpdateAsync(IUserWithFullData user);
+    Task UpdateAsync(IUserWithPersonalData user);
 }

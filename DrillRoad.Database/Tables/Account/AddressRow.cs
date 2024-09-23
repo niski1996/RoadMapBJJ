@@ -1,8 +1,9 @@
 using System.Data;
+using DrillRoad.Contracts.Account;
 
 namespace DrillRoad.Database.Tables.Account;
 
-public class AddressRow : IDatabaseTable
+public class AddressRow : IDatabaseTable, IAddress 
 {
 
     public string? Apartment { get; set; }

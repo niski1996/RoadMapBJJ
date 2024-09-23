@@ -1,7 +1,6 @@
-using System;
-using System.Collections.Generic;
+using DrillRoad.Entities.Account;
 
-namespace DrillRoad.Entities.Persons
+namespace DrillRoad.Test.Samples
 {
     public static class AddressSamples
     {

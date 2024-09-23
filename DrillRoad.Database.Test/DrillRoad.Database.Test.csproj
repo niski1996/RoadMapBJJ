@@ -22,6 +22,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DrillRoad.Database\DrillRoad.Database.csproj" />
+      <ProjectReference Include="..\DrillRoad.Test\DrillRoad.Test.csproj" />
       <ProjectReference Include="..\DrillRoad\DrillRoad.csproj" />
     </ItemGroup>
 

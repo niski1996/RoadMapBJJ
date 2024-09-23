@@ -1,6 +1,6 @@
 ﻿using DrillRoad.Contracts.Account;
 
-namespace DrillRoad.Entities.Persons;
+namespace DrillRoad.Entities.Account;
 
 public class Contact: IContact
 {

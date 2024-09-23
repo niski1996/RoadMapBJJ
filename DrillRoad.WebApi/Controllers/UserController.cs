@@ -1,7 +1,7 @@
 using DrillRoad.Contracts.Account;
 using DrillRoad.Contracts.Repositories;
 using DrillRoad.Database.Repositories;
-using DrillRoad.Entities.Persons;
+using DrillRoad.Entities.Account;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrillRoad.WebApi.Controllers;

@@ -1,7 +1,6 @@
 ﻿using DrillRoad.Contracts.Account;
-using DrillRoad.Contracts.Common;
 
-namespace DrillRoad.Entities.Persons;
+namespace DrillRoad.Entities.Account;
 
 public class Address  : IAddress
 {

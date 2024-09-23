@@ -1,4 +1,4 @@
-﻿using DrillRoad.Entities.Persons;
+﻿using DrillRoad.Entities.Account;
 using FluentValidation;
 
 namespace DrillRoad.Validators.Entities.Users;

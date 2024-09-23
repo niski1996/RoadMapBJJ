@@ -1,4 +1,4 @@
-﻿namespace DrillRoad.Entities.Persons;
+﻿namespace DrillRoad.Entities.Account;
 
 public class Admin
 {

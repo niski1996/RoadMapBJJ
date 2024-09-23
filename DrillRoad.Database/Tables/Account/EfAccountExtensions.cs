@@ -9,16 +9,20 @@ public static class EfAccountExtensions
         builder.Entity<AdditionalUserInfoRow>(e =>
         {
             e.SetBaseGeneratableProperties();
+            
         });
         
         builder.Entity<AddressRow>(e =>
         {
             e.SetBaseGeneratableProperties();
+            e.Property(a => a.Apartment).IsRequired(false);
+            e.Property(a => a.Street).IsRequired(false); 
         });
         
         builder.Entity<ContactRow>(e =>
         {
             e.SetBaseGeneratableProperties();
+            e.Property(a => a.PhoneNumber).IsRequired(false);
         });
     }
 }
