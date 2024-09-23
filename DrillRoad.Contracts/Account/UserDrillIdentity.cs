@@ -1,8 +1,9 @@
+using DrillRoad.Contracts.Tables.Account;
 using Microsoft.AspNetCore.Identity;
 
 namespace DrillRoad.Contracts.Account;
 
 public class UserDrillIdentity : IdentityUser
 {
-    public Guid? AdditionalUserInfoId { get; set; }
+    public AdditionalUserInfoRow?  AdditionalUserInfoId { get; set; }
 }

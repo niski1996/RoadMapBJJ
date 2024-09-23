@@ -13,6 +13,8 @@ public  class AdditionalUserRepository(RoadMapDbContext context) : IAdditionalUs
     {
         return await context.Set<UserDrillIdentity>().AsNoTracking().ToListAsync();
     }
+    
+    
 
     // Retrieve all users with personal data (assuming there is a table or view)
     public async Task<IEnumerable<IUserWithPersonalData>> GetAllUsersWithPersonalData()
