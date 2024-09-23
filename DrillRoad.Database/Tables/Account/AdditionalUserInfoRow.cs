@@ -10,8 +10,8 @@ public class AdditionalUserInfoRow : IDatabaseTable //TODO odwrócić relacje i 
     public ContactRow ContactRow { get; set; }
     public Guid Id { get; set; }
     public DateTime InsertTime { get; set; }
-    List<FightActionRow> fightActions { get; set; }
-    List<PositionRow> positions { get; set; }
-    List<TransitionRow> transactions { get; set; }
-    List<UserDrillIdentity> trainers { get; set; }
+    public List<FightActionRow> fightActions { get; set; }
+    public List<PositionRow> positions { get; set; }
+    public List<TransitionRow> transactions { get; set; }
+    public List<UserDrillIdentity> trainers { get; set; }
 }

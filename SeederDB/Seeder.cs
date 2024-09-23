@@ -11,8 +11,14 @@ public class Seeder
             .UseNpgsql(ConnectionString)
             .Options;
         context = new RoadMapDbContext(options);
+        context.Database.EnsureCreated();
 
     }
 
     public RoadMapDbContext context { get; set; }
+
+    public void Seed()
+    {
+        
+    }
 }

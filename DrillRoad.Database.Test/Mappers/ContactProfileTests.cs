@@ -1,5 +1,6 @@
 using System.Text.Json;
 using AutoMapper;
+using DrillRoad.Contracts.Account;
 using DrillRoad.Database.Mappers;
 using DrillRoad.Database.Tables.Account;
 using DrillRoad.Entities.Account;
@@ -132,5 +133,38 @@ public class ContactProfileTests
 
         // Assert - compare JSON strings
         Assert.Equal(originalJson, mappedBackJson);
+    }
+    [Fact]
+    public void Should_Map_IContact_To_ContactRow()
+    {
+        // Arrange
+        IContact contact = new Contact
+        {
+            Address = new Address // Przypuszczamy, że Address jest konkretna implementacją IAddress
+            {
+                Building = "1A",
+                City = "TestCity",
+                Country = "TestCountry",
+                PostalCode = "12345",
+                Street = "Test Street"
+            },
+            PhoneNumber = "123456789",
+            Email = "test@example.com",
+            Id = Guid.NewGuid()
+        };
+
+        // Act
+        var contactRow = _mapper.Map<ContactRow>(contact);
+
+        // Assert
+        Assert.NotNull(contactRow);
+        Assert.Equal(contact.PhoneNumber, contactRow.PhoneNumber);
+        Assert.Equal(contact.Email, contactRow.Email);
+        Assert.Equal(((Address)contact.Address).Building, contactRow.Address.Building);
+        Assert.Equal(((Address)contact.Address).City, contactRow.Address.City);
+        Assert.Equal(((Address)contact.Address).Country, contactRow.Address.Country);
+        Assert.Equal(((Address)contact.Address).PostalCode, contactRow.Address.PostalCode);
+        Assert.Equal(((Address)contact.Address).Street, contactRow.Address.Street);
+        Assert.Equal(contact.Id, contactRow.Id);
     }
 }
