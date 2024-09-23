@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrillRoad.Database.Test", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrillRoad.Test", "DrillRoad.Test\DrillRoad.Test.csproj", "{23859BD3-ABE3-412E-AA0D-11EC8E80A3CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeederDB", "SeederDB\SeederDB.csproj", "{BD66318A-8F1A-4933-A046-2B1F37D70D96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{23859BD3-ABE3-412E-AA0D-11EC8E80A3CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23859BD3-ABE3-412E-AA0D-11EC8E80A3CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23859BD3-ABE3-412E-AA0D-11EC8E80A3CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD66318A-8F1A-4933-A046-2B1F37D70D96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD66318A-8F1A-4933-A046-2B1F37D70D96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD66318A-8F1A-4933-A046-2B1F37D70D96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD66318A-8F1A-4933-A046-2B1F37D70D96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

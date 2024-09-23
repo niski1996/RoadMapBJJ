@@ -3,7 +3,7 @@ using DrillRoad.Entities.Account;
 using DrillRoad.Test.Samples;
 using Microsoft.EntityFrameworkCore;
 
-namespace DrillRoad.Database.Test.RepositoryTest;
+namespace DrillRoad.Database.Test.Repository;
 
 public class UserWithPersonalDataTests 
 {
