@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DrillRoad.Database;
 
-public class RoadMapDbContext : IdentityDbContext<DrillIdentityUser>
+public class RoadMapDbContext : IdentityDbContext<UserDrillIdentity>
 {
     public RoadMapDbContext(DbContextOptions<RoadMapDbContext> options) : base(options)
     {

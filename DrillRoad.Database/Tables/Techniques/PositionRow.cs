@@ -14,7 +14,7 @@ public class PositionRow : ITechniqueDb
     public IEnumerable<VideoRow> TutorialVideos { get; set; }
     public IEnumerable<FightActionRow> PossibleActions { get; set; }
     public IEnumerable<TransitionRow> PossibleTransitions { get; set; }
-    public Guid Id { get; set; } = new Guid();
+    public Guid Id { get; set; } = new();
     public DateTime InsertTime { get; set; }
     public DateTime UpdateTime { get; set; }
 }

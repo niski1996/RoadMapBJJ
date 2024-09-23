@@ -11,7 +11,7 @@ public class AddressRow : IDatabaseTable
     public required string City { get; set; }
     public required string PostalCode { get; set; }
     public required string Country { get; set; }
-    public Guid Id { get; set; } = new Guid();
+    public Guid Id { get; set; } = new();
 
     public DateTime InsertTime { get; set; }
 }

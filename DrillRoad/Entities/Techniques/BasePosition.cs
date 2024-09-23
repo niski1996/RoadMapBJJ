@@ -25,5 +25,5 @@ public abstract class BasePosition : IPosition
     public IEnumerable<IVideo> TutorialVideos { get; set; } = new List<IVideo>();
     public IEnumerable<IFightAction> PossibleActions { get; set; } = new List<IFightAction>();
     public IEnumerable<ITransition> PossibleTransitions { get; set; } = new List<ITransition>();
-    public Guid Id { get; set; } = new Guid();
+    public Guid Id { get; set; } = new();
 }

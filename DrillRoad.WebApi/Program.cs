@@ -41,7 +41,7 @@ builder.Services.AddSwaggerGen(options =>
 
 
 builder.Services.AddAuthorization();
-builder.Services.AddIdentityApiEndpoints<DrillIdentityUser>()
+builder.Services.AddIdentityApiEndpoints<UserDrillIdentity>()
     .AddEntityFrameworkStores<RoadMapDbContext>();
 
 
@@ -64,7 +64,7 @@ var app = builder.Build();
 
 
 app.UseHttpsRedirection();
-app.MapIdentityApi<DrillIdentityUser>();
+app.MapIdentityApi<UserDrillIdentity>();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

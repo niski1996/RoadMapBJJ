@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrillRoad", "DrillRoad\Dril
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrillRoad.Contracts", "DrillRoad.Contracts\DrillRoad.Contracts.csproj", "{B0D09C50-0BE9-42D9-8183-4CE618510749}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrillRoad.Database.Test", "DrillRoad.Database.Test\DrillRoad.Database.Test.csproj", "{AE59869A-A534-4182-99F2-16D7D70800CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrillRoad.Test", "DrillRoad.Test\DrillRoad.Test.csproj", "{23859BD3-ABE3-412E-AA0D-11EC8E80A3CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{B0D09C50-0BE9-42D9-8183-4CE618510749}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0D09C50-0BE9-42D9-8183-4CE618510749}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0D09C50-0BE9-42D9-8183-4CE618510749}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE59869A-A534-4182-99F2-16D7D70800CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE59869A-A534-4182-99F2-16D7D70800CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE59869A-A534-4182-99F2-16D7D70800CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE59869A-A534-4182-99F2-16D7D70800CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23859BD3-ABE3-412E-AA0D-11EC8E80A3CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23859BD3-ABE3-412E-AA0D-11EC8E80A3CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23859BD3-ABE3-412E-AA0D-11EC8E80A3CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23859BD3-ABE3-412E-AA0D-11EC8E80A3CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

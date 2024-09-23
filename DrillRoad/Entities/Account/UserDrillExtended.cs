@@ -3,7 +3,7 @@ using DrillRoad.Contracts.Enums;
 
 namespace DrillRoad.Entities.Persons;
 
-public class DrillExtendedUser: DrillIdentityUser 
+public class UserDrillExtended: UserDrillIdentity 
 {
-    IPersonalUserData PersonalUserData { get; set; }
+    IUserWithPersonalData UserWithPersonalData { get; set; }
 }

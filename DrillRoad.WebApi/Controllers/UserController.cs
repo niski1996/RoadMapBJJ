@@ -12,7 +12,7 @@ public class UserController(IAdditionalUserRepository repo) : ControllerBase
 {
     [HttpGet]
     [Route("GetAll")]
-    public async Task<ActionResult<List<DrillIdentityUser>>> GetAll()
+    public async Task<ActionResult<List<UserDrillIdentity>>> GetAll()
     {
         var users = await repo.GetAllUsers(); // Fetch all users from repository
         return Ok(users.ToList()); // Return 200 OK with the list of users
@@ -20,7 +20,7 @@ public class UserController(IAdditionalUserRepository repo) : ControllerBase
     
     [HttpGet]
     [Route("GetAllWithDetails")]
-    public async Task<ActionResult<List<DrillIdentityUser>>> GetAllWithDetails()
+    public async Task<ActionResult<List<UserDrillIdentity>>> GetAllWithDetails()
     {
         var users = await repo.GetAllUsers(); // Fetch all users from repository
         return Ok(users.ToList()); // Return 200 OK with the list of users
