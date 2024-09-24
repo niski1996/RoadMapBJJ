@@ -5,5 +5,5 @@ namespace DrillRoad.Contracts.Account;
 
 public class UserDrillIdentity : IdentityUser
 {
-    public AdditionalUserInfoRow?  AdditionalUserInfoId { get; set; }
+    public AdditionalUserInfoRow?  AdditionalUserInfo { get; set; }
 }

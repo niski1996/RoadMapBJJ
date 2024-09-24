@@ -1,6 +1,6 @@
 namespace DrillRoad.Contracts.Account;
 
-public interface IUserWithPersonalData
+public interface IUserPersonalData
 {
     
     public string PictureRepoPatch { get; set; }

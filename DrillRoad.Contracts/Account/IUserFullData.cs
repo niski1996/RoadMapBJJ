@@ -2,7 +2,7 @@ using DrillRoad.Contracts.Techniques;
 
 namespace DrillRoad.Contracts.Account;
 
-public interface IUserWithFullData: IUserWithPersonalData
+public interface IUserFullData: IUserPersonalData
 {
     List<IFightAction> FightActions { get; set; }
     List<IPosition> Positions { get; set; }

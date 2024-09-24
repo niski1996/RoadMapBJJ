@@ -1,6 +1,7 @@
 using DrillRoad.Contracts.Account;
 using DrillRoad.Contracts.DbContracts;
-using DrillRoad.Contracts.Tables.Techniques;
+using DrillRoad.Contracts.Tables.Media;
+
 
 namespace DrillRoad.Contracts.Tables.Account;
 
@@ -11,8 +12,6 @@ public class AdditionalUserInfoRow : IDatabaseTable //TODO odwrócić relacje i 
     public ContactRow ContactRow { get; set; }
     public Guid Id { get; set; }
     public DateTime InsertTime { get; set; }
-    public List<FightActionRow> fightActions { get; set; }
-    public List<PositionRow> positions { get; set; }
-    public List<TransitionRow> transactions { get; set; }
+    public List<VideoRow> Videos { get; set; }
     public List<UserDrillIdentity> trainers { get; set; }
 }

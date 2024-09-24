@@ -2,7 +2,6 @@
 using DrillRoad.Contracts.Tables.Account;
 using DrillRoad.Database.Tables;
 using DrillRoad.Database.Tables.Account;
-using DrillRoad.Database.Tables.Techniques;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,7 +16,7 @@ public class RoadMapDbContext : IdentityDbContext<UserDrillIdentity>
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.HasDefaultSchema("main");
-        builder.AddTechniques();
+        //TODO builder.AddTechniques(); 
         builder.AddAccountInfo();
         base.OnModelCreating(builder);
     }

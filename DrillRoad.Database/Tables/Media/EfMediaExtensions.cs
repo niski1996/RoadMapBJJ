@@ -11,6 +11,6 @@ public static class EfMediaExtensions
         {
             e.SetBaseGeneratableProperties();
         });
-        
+        builder.Entity<VideoInfoRow>(e => e.SetUpdatablePropertyGenerate());
     }
 }

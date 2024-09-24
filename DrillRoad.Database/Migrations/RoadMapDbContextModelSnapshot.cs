@@ -31,7 +31,7 @@ namespace DrillRoad.Database.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("integer");
 
-                    b.Property<Guid?>("AdditionalUserInfoIdId")
+                    b.Property<Guid?>("AdditionalUserInfoId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -80,7 +80,7 @@ namespace DrillRoad.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AdditionalUserInfoIdId");
+                    b.HasIndex("AdditionalUserInfoId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -183,22 +183,44 @@ namespace DrillRoad.Database.Migrations
                     b.ToTable("ContactRow", "main");
                 });
 
+            modelBuilder.Entity("DrillRoad.Contracts.Tables.Media.VideoInfoRow", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("UpdateTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VideoInfoRow", "main");
+                });
+
             modelBuilder.Entity("DrillRoad.Contracts.Tables.Media.VideoRow", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid?>("FightActionRowId")
+                    b.Property<Guid?>("AdditionalUserInfoRowId")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("InsertTime")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<Guid?>("PositionRowId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("TransitionRowId")
+                    b.Property<Guid>("VideoInfoId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("VideoRepoPatch")
@@ -207,137 +229,11 @@ namespace DrillRoad.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FightActionRowId");
+                    b.HasIndex("AdditionalUserInfoRowId");
 
-                    b.HasIndex("PositionRowId");
-
-                    b.HasIndex("TransitionRowId");
+                    b.HasIndex("VideoInfoId");
 
                     b.ToTable("VideoRow", "main");
-                });
-
-            modelBuilder.Entity("DrillRoad.Contracts.Tables.Techniques.FightActionRow", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<int>("ActionType")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid?>("AdditionalUserInfoRowId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<Guid?>("FightActionRowId")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("InsertTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
-
-                    b.Property<Guid>("StartingPositionId")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("UpdateTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AdditionalUserInfoRowId");
-
-                    b.HasIndex("FightActionRowId");
-
-                    b.HasIndex("StartingPositionId");
-
-                    b.ToTable("FightActionRow", "main");
-                });
-
-            modelBuilder.Entity("DrillRoad.Contracts.Tables.Techniques.PositionRow", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("AdditionalUserInfoRowId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("InsertTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
-
-                    b.Property<int>("PositionType")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("UpdateTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AdditionalUserInfoRowId");
-
-                    b.ToTable("PositionRow", "main");
-                });
-
-            modelBuilder.Entity("DrillRoad.Contracts.Tables.Techniques.TransitionRow", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("AdditionalUserInfoRowId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<Guid>("FinalPositionId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("InitialPositionId")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("InsertTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
-
-                    b.Property<Guid?>("PositionRowId")
-                        .HasColumnType("uuid");
-
-                    b.Property<int>("TransitionType")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("UpdateTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AdditionalUserInfoRowId");
-
-                    b.HasIndex("FinalPositionId");
-
-                    b.HasIndex("InitialPositionId");
-
-                    b.HasIndex("PositionRowId");
-
-                    b.ToTable("TransitionRow", "main");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -474,11 +370,11 @@ namespace DrillRoad.Database.Migrations
 
             modelBuilder.Entity("DrillRoad.Contracts.Account.UserDrillIdentity", b =>
                 {
-                    b.HasOne("DrillRoad.Contracts.Tables.Account.AdditionalUserInfoRow", "AdditionalUserInfoId")
+                    b.HasOne("DrillRoad.Contracts.Tables.Account.AdditionalUserInfoRow", "AdditionalUserInfo")
                         .WithMany("trainers")
-                        .HasForeignKey("AdditionalUserInfoIdId");
+                        .HasForeignKey("AdditionalUserInfoId");
 
-                    b.Navigation("AdditionalUserInfoId");
+                    b.Navigation("AdditionalUserInfo");
                 });
 
             modelBuilder.Entity("DrillRoad.Contracts.Tables.Account.AdditionalUserInfoRow", b =>
@@ -505,70 +401,17 @@ namespace DrillRoad.Database.Migrations
 
             modelBuilder.Entity("DrillRoad.Contracts.Tables.Media.VideoRow", b =>
                 {
-                    b.HasOne("DrillRoad.Contracts.Tables.Techniques.FightActionRow", null)
-                        .WithMany("TutorialVideos")
-                        .HasForeignKey("FightActionRowId");
-
-                    b.HasOne("DrillRoad.Contracts.Tables.Techniques.PositionRow", null)
-                        .WithMany("TutorialVideos")
-                        .HasForeignKey("PositionRowId");
-
-                    b.HasOne("DrillRoad.Contracts.Tables.Techniques.TransitionRow", null)
-                        .WithMany("TutorialVideos")
-                        .HasForeignKey("TransitionRowId");
-                });
-
-            modelBuilder.Entity("DrillRoad.Contracts.Tables.Techniques.FightActionRow", b =>
-                {
                     b.HasOne("DrillRoad.Contracts.Tables.Account.AdditionalUserInfoRow", null)
-                        .WithMany("fightActions")
+                        .WithMany("Videos")
                         .HasForeignKey("AdditionalUserInfoRowId");
 
-                    b.HasOne("DrillRoad.Contracts.Tables.Techniques.FightActionRow", null)
-                        .WithMany("PossibleOpponentActions")
-                        .HasForeignKey("FightActionRowId");
-
-                    b.HasOne("DrillRoad.Contracts.Tables.Techniques.PositionRow", "StartingPosition")
-                        .WithMany("PossibleActions")
-                        .HasForeignKey("StartingPositionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("StartingPosition");
-                });
-
-            modelBuilder.Entity("DrillRoad.Contracts.Tables.Techniques.PositionRow", b =>
-                {
-                    b.HasOne("DrillRoad.Contracts.Tables.Account.AdditionalUserInfoRow", null)
-                        .WithMany("positions")
-                        .HasForeignKey("AdditionalUserInfoRowId");
-                });
-
-            modelBuilder.Entity("DrillRoad.Contracts.Tables.Techniques.TransitionRow", b =>
-                {
-                    b.HasOne("DrillRoad.Contracts.Tables.Account.AdditionalUserInfoRow", null)
-                        .WithMany("transactions")
-                        .HasForeignKey("AdditionalUserInfoRowId");
-
-                    b.HasOne("DrillRoad.Contracts.Tables.Techniques.PositionRow", "FinalPosition")
+                    b.HasOne("DrillRoad.Contracts.Tables.Media.VideoInfoRow", "VideoInfo")
                         .WithMany()
-                        .HasForeignKey("FinalPositionId")
+                        .HasForeignKey("VideoInfoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DrillRoad.Contracts.Tables.Techniques.PositionRow", "InitialPosition")
-                        .WithMany()
-                        .HasForeignKey("InitialPositionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DrillRoad.Contracts.Tables.Techniques.PositionRow", null)
-                        .WithMany("PossibleTransitions")
-                        .HasForeignKey("PositionRowId");
-
-                    b.Navigation("FinalPosition");
-
-                    b.Navigation("InitialPosition");
+                    b.Navigation("VideoInfo");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -624,34 +467,9 @@ namespace DrillRoad.Database.Migrations
 
             modelBuilder.Entity("DrillRoad.Contracts.Tables.Account.AdditionalUserInfoRow", b =>
                 {
-                    b.Navigation("fightActions");
-
-                    b.Navigation("positions");
+                    b.Navigation("Videos");
 
                     b.Navigation("trainers");
-
-                    b.Navigation("transactions");
-                });
-
-            modelBuilder.Entity("DrillRoad.Contracts.Tables.Techniques.FightActionRow", b =>
-                {
-                    b.Navigation("PossibleOpponentActions");
-
-                    b.Navigation("TutorialVideos");
-                });
-
-            modelBuilder.Entity("DrillRoad.Contracts.Tables.Techniques.PositionRow", b =>
-                {
-                    b.Navigation("PossibleActions");
-
-                    b.Navigation("PossibleTransitions");
-
-                    b.Navigation("TutorialVideos");
-                });
-
-            modelBuilder.Entity("DrillRoad.Contracts.Tables.Techniques.TransitionRow", b =>
-                {
-                    b.Navigation("TutorialVideos");
                 });
 #pragma warning restore 612, 618
         }

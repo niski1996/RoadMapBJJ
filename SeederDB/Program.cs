@@ -10,4 +10,4 @@ var seeder = new Seeder(ConnectionString);
 seeder.Seed();
 
 var remover = new Remover(ConnectionString);
-remover.Remove();
+// remover.Remove();

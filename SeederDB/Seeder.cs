@@ -1,4 +1,6 @@
+using DrillRoad.Contracts.Account;
 using DrillRoad.Database;
+using DrillRoad.Database.Repositories;
 using DrillRoad.Test.Samples;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,20 +27,10 @@ public class Seeder
 
     public void SeedAdditionalUserInfoRow()
     {
-        // context.Add(AdditionalUserInfoRowSamples.AdditionalUserInfoRow1Partial());
-        // context.Add(AdditionalUserInfoRowSamples.AdditionalUserInfoRow2Partial());
-        // context.SaveChanges();
-        var newUserInfo = AdditionalUserInfoRowSamples.AdditionalUserInfoRow1Partial();
-
-        // Add the new entity to the context
-        context.Add(newUserInfo);
-
-        // Save changes to the database
+        var repo =new AdditionalUserRepository(context);
+        repo.UpdateAsync(AdditionalUserInfoRowSamples.AdditionalUserInfoRow1Partial(),
+            PostmanPreparedUsers.UserFromPostman1);
         context.SaveChanges();
-
-        // Return the ID of the newly created record
-        Console.WriteLine(newUserInfo.Id);
-        
     }
 
 }
